@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Sep 2024 pada 13.52
+-- Waktu pembuatan: 20 Jan 2025 pada 07.53
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -126,16 +126,6 @@ CREATE TABLE `mst_jenis_barang` (
   `kode_jenis_barang` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `mst_jenis_barang`
---
-
-INSERT INTO `mst_jenis_barang` (`id_jenis_barang`, `sub_barang`, `grup_sub`, `kode_sub`, `kode_jenis_barang`) VALUES
-(1, 'monitor', 'C', 'MON', 'C/MON'),
-(2, 'keyboard', 'C', 'KEY', 'C/KEY'),
-(4, 'laptop', 'C', 'LAP', 'C/LAP'),
-(5, 'mouse', 'C', 'MOU', 'C/MOU');
-
 -- --------------------------------------------------------
 
 --
@@ -204,14 +194,6 @@ CREATE TABLE `mst_merek_barang` (
   `nama_merek_barang` varchar(50) DEFAULT NULL,
   `kode_merek_barang` char(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `mst_merek_barang`
---
-
-INSERT INTO `mst_merek_barang` (`id_merek_barang`, `nama_merek_barang`, `kode_merek_barang`) VALUES
-(2, 'fantech', '002'),
-(5, 'hp', '004');
 
 -- --------------------------------------------------------
 
@@ -307,13 +289,6 @@ CREATE TABLE `trx_barang` (
   `qr_code` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `trx_barang`
---
-
-INSERT INTO `trx_barang` (`id_barang`, `foto_barang`, `id_jenis_barang`, `id_merek_barang`, `id_kondisi_barang`, `jumlah_barang`, `id_satuan`, `deskripsi_barang`, `tgl_pengadaan_barang`, `keterangan_label`, `id_lokasi_penyimpanan`, `deskripsi_detail_lokasi`, `id_status`, `status_peminjaman`, `kode_barang`, `qr_code`) VALUES
-(80, '../public/img/foto-barang/MacBook Pro 16 (1).png', 1, 5, 5, 1, 1, '', '2024-06-11', 'Sudah', 5, 'meja 7', 5, 'Bisa', '2024/VI/C/MON/004/1/10', '../public/img/qr-code/code_666a5b9421738.png');
-
 -- --------------------------------------------------------
 
 --
@@ -335,9 +310,7 @@ CREATE TABLE `trx_data_user` (
 --
 
 INSERT INTO `trx_data_user` (`id_data_user`, `id_user`, `foto`, `nama_user`, `no_hp_user`, `jenis_kelamin`, `alamat`) VALUES
-(5, 6, '../public/img/foto-profile/user.svg', 'Furqon Fatahillah', '085240153953', 'Laki-laki', 'Borong raya'),
-(11, 12, '../public/img/foto-profile/WhatsApp Image 2024-02-02 at 19.05.56_a1d84076.jpg', 'Nurul Azmi', '082292704208', 'Perempuan', 'pampang'),
-(21, 22, '../public/img/foto-profile/Vectto.jpeg', 'akbar', '0834326473434', 'Laki-laki', 'makassar');
+(5, 6, '../public/img/foto-profile/user.svg', 'Furqon Fatahillah', '085240153953', 'Laki-laki', 'Borong raya');
 
 -- --------------------------------------------------------
 
@@ -357,9 +330,7 @@ CREATE TABLE `trx_user` (
 --
 
 INSERT INTO `trx_user` (`id_user`, `email`, `password`, `id_role`) VALUES
-(6, 'furqonfatahillah999@gmail.com', '$2y$10$Shs7Errud4hePyn4.Ke/Z.H6kTEPRw3wNVZVhKCvYIrBUhGHy1xxy', 3),
-(12, 'nrl.azmi160103@gmail.com', '$2y$10$JENJHI1HEJ5xOdNTZDVUKOTBUFprh5nIDWC.OCKgWqoUGEFcc/8RG', 1),
-(22, 'akbar@gmail.com', '$2y$10$dr0rox81DcM8tZzZwm.FWeOJUTpQ6puBX86cxJX4rfg4MAorflB6S', 1);
+(6, 'furqonfatahillah999@gmail.com', '$2y$10$Shs7Errud4hePyn4.Ke/Z.H6kTEPRw3wNVZVhKCvYIrBUhGHy1xxy', 3);
 
 -- --------------------------------------------------------
 
@@ -453,7 +424,7 @@ ALTER TABLE `trx_user`
 -- AUTO_INCREMENT untuk tabel `mst_jenis_barang`
 --
 ALTER TABLE `mst_jenis_barang`
-  MODIFY `id_jenis_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_jenis_barang` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `mst_kondisi_barang`
@@ -465,13 +436,13 @@ ALTER TABLE `mst_kondisi_barang`
 -- AUTO_INCREMENT untuk tabel `mst_lokasi_penyimpanan`
 --
 ALTER TABLE `mst_lokasi_penyimpanan`
-  MODIFY `id_lokasi_penyimpanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_lokasi_penyimpanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `mst_merek_barang`
 --
 ALTER TABLE `mst_merek_barang`
-  MODIFY `id_merek_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_merek_barang` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `mst_role`
@@ -495,19 +466,19 @@ ALTER TABLE `mst_status`
 -- AUTO_INCREMENT untuk tabel `trx_barang`
 --
 ALTER TABLE `trx_barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `trx_data_user`
 --
 ALTER TABLE `trx_data_user`
-  MODIFY `id_data_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_data_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `trx_user`
 --
 ALTER TABLE `trx_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
