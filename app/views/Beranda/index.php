@@ -51,7 +51,7 @@
             ?>
                 </div>
                 <div class="search" style="width:350px; background-color:transparent;">
-                    <form action="<?=BASEURL;?>Beranda/cari" method="post">
+                    <!-- <form action="<?=BASEURL;?>Beranda/cari" method="post">
                         <div class="input-group mb-3" style=" box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);">
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary" type="submit" id="btn-cari"
@@ -61,17 +61,17 @@
                             <input type="text" class="form-control" placeholder="Cari..." name="keyword" id="keyword"
                                 style="height: 45px;" autocomplete="off">
                         </div>
-                    </form>
+                    </form> -->
                     <div style="display: flex; align-items: center; gap:10px; justify-content: end;">
                         <input type="checkbox" class="checkbox" id="selectAllCheckbox" name="selectAllCheckbox" style="width: 15px;">
                         <label class="checkbox" for="selectAllCheckbox" style="margin-top: 7px;">Pilih semua</label>
                     </div>
                 </div>
             </div>
-            <div style="max-height: 360px; overflow-y:auto;box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5); border-radius:5px;">
-            <table  class="table table-hover table-sm"
+            <div style="padding:10px; box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5); border-radius:5px;">
+            <table  class="table table-hover " id="dataTable"
                 style=" width:100%;">
-                <thead class="table-info">
+                <thead class="table-info" >
                     <tr>
                         <th scope="col" class="p-2">No.</th>
                         <th scope="col" class="p-2">Foto</th>

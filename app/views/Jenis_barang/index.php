@@ -56,8 +56,8 @@
                     </form>
                 </div>
             </div>
-            <div style="max-height: 400px; overflow-y:auto;box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5); border-radius:5px;">
-            <table class="table table-hover table-sm">
+            <div style="height:fit-content; padding:10px; overflow-y:auto;box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5); border-radius:5px;">
+            <table class="table table-hover table-sm" id="dataTable" style="width: 100%;">
                 <thead class="table-info">
                     <tr>
                         <th scope="col" class="p-2">No.</th>

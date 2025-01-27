@@ -88,18 +88,18 @@ class Beranda extends Controller {
              
     }
 
-    public function cari(){
-        $data['judul'] = ' Beranda';
+    // public function cari(){
+    //     $data['judul'] = ' Beranda';
         
-        $TambahBarangModel = $this->model('Beranda_model');
-        $data['dataTampilBarang']= $TambahBarangModel->cariDataBarang();
-        $data['id_user'] = $_SESSION['id_user'];
-        $data['profile'] = $this->model("User_model")->profile($data);
-        // Memanggil view transaksi barang
-        $this->view('templates/header', $data);
-        $this->view('Beranda/index', $data);
-        $this->view('templates/footer');
-    }
+    //     $TambahBarangModel = $this->model('Beranda_model');
+    //     $data['dataTampilBarang']= $TambahBarangModel->cariDataBarang();
+    //     $data['id_user'] = $_SESSION['id_user'];
+    //     $data['profile'] = $this->model("User_model")->profile($data);
+    //     // Memanggil view transaksi barang
+    //     $this->view('templates/header', $data);
+    //     $this->view('Beranda/index', $data);
+    //     $this->view('templates/footer');
+    // }
 
 
     public function cetak() {
@@ -112,7 +112,7 @@ class Beranda extends Controller {
             $this->view('templates/footer');
 
         } else{
-            Flasher::setFlash('Data barang', 'gagal', ' diCetak </br> Pilih data barang', 'danger');
+            Flasher::setFlash('Data barang', 'gagal', ' diCetak Pilih data barang', 'danger');
             header('Location: '. BASEURL . 'Beranda');
             exit;
         }

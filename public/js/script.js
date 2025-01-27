@@ -137,86 +137,86 @@ $(function () {
   });
 
   //data tables
-  let table = $("#example").DataTable({
-    lengthChange: false,
-    searching: false,
-    responsive: true,
-    scrollY: 350,
-    scrollX: 400,
-    pageLength: 10,
-    deferRender: true,
-    scroller: true,
-    dom: "Bfrtip",
-    buttons: [
-      {
-        extend: "copy",
-        text: '<i class="fa-solid fa-copy" style="color: #ffffff;margin-right:10px;"></i>Salin',
-        exportOptions: {
-          columns: ":visible",
+  $(document).ready(function () {
+    let table1 = $("#example").DataTable({
+      lengthChange: false,
+      searching: false,
+      responsive: true,
+      scrollY: 300,
+      scrollX: 400,
+      pageLength: 10,
+      deferRender: true,
+      scroller: true,
+      dom: "Bfrtip",
+      buttons: [
+        {
+          extend: "copy",
+          text: '<i class="fa-solid fa-copy" style="color: #ffffff;margin-right:10px;"></i>Salin',
+          exportOptions: {
+            columns: ":visible",
+          },
         },
-      },
-      {
-        extend: "csv",
-        text: '<i class="fa-solid fa-file-csv" style="color: #ffffff; margin-right:10px;"></i>Ekspor ke CSV',
-        exportOptions: {
-          columns: ":visible",
+        {
+          extend: "csv",
+          text: '<i class="fa-solid fa-file-csv" style="color: #ffffff; margin-right:10px;"></i>Ekspor ke CSV',
+          exportOptions: {
+            columns: ":visible",
+          },
         },
-      },
-      {
-        extend: "excel",
-        title: "Data Barang Laboratorium Terpadu Fakultas Ilmu Komputer",
-        text: '<i class="fa-solid fa-file-excel" style="color: #ffffff; margin-right:10px;"></i>Ekspor ke Excel',
-        exportOptions: {
-          columns: ":visible",
+        {
+          extend: "excel",
+          title: "Data Barang Laboratorium Terpadu Fakultas Ilmu Komputer",
+          text: '<i class="fa-solid fa-file-excel" style="color: #ffffff; margin-right:10px;"></i>Ekspor ke Excel',
+          exportOptions: {
+            columns: ":visible",
+          },
         },
-      },
-      {
-        extend: "print",
-        title: "",
-        text: '<i class="fa-solid fa-print" style="color: #ffffff;  margin-right:10px;"></i>Cetak',
-        exportOptions: {
-          columns: ":visible",
-          stripHtml: false,
-          orientation: "landscape",
-        },
-        customize: function (win) {
-          $(win.document.body).prepend(
-            '<img src="../img/logo bg putih.svg" style="width:250px;height:250px;">'
-          );
-          var css =
-              "@page { size: A3 landscape; }" +
-              "table.dataTable { width: 100% !important; }" +
-              "table.dataTable th, table.dataTable td { white-space: nowrap; }",
-            head =
-              win.document.head || win.document.getElementsByTagName("head")[0],
-            style = win.document.createElement("style");
+        {
+          extend: "print",
+          title: "",
+          text: '<i class="fa-solid fa-print" style="color: #ffffff;  margin-right:10px;"></i>Cetak',
+          exportOptions: {
+            columns: ":visible",
+            stripHtml: false,
+            orientation: "landscape",
+          },
+          customize: function (win) {
+            $(win.document.body).prepend(
+              '<img src="../img/logo bg putih.svg" style="width:250px;height:250px;">'
+            );
+            var css =
+                "@page { size: A3 landscape; }" +
+                "table.dataTable { width: 100% !important; }" +
+                "table.dataTable th, table.dataTable td { white-space: nowrap; }",
+              head =
+                win.document.head ||
+                win.document.getElementsByTagName("head")[0],
+              style = win.document.createElement("style");
 
-          style.type = "text/css";
-          style.media = "print";
+            style.type = "text/css";
+            style.media = "print";
 
-          if (style.styleSheet) {
-            style.styleSheet.cssText = css;
-          } else {
-            style.appendChild(win.document.createTextNode(css));
-          }
+            if (style.styleSheet) {
+              style.styleSheet.cssText = css;
+            } else {
+              style.appendChild(win.document.createTextNode(css));
+            }
 
-          head.appendChild(style);
+            head.appendChild(style);
+          },
         },
+        {
+          extend: "colvis",
+          text: "Visibilitas kolom",
+        },
+      ],
+    });
 
-        //   // Lakukan hal lain yang diperlukan dengan dokumen PDF
-        // },
-        // });
-        // },
-      },
-      {
-        extend: "colvis",
-        text: "Visibilitas kolom",
-      },
-    ],
+    // Pindahkan tombol ke tempat yang tepat
+    table1.buttons().container().appendTo("#example_wrapper :eq(0)");
+
+    // DataTable kedua hanya dengan tombol pencarian
   });
-
-  table.buttons().container().appendTo("#example_wrapper :eq(0)");
-
   // set time flasher
   setTimeout(function () {
     $("#flasher").fadeOut("slow");

@@ -56,9 +56,9 @@
                 </div>
             </div>
             <div
-                style="max-height: 400px; overflow:auto;box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5); border-radius:5px;">
-                <table class="table table-hover table-sm">
-                    <thead class="table-info">
+                style=" padding:10px; overflow:auto;box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5); border-radius:5px;">
+                <table class="table table-hover" id="dataTable" style="width: 100%;">
+                    <thead class="table-info" >
                         <tr>
                             <th scope="col" class="p-2">No.</th>
                             <th scope="col" class="p-2">Merek barang</th>
